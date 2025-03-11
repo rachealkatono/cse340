@@ -13,35 +13,25 @@ const static = require("./routes/static")
 
 
 /* ***********************
- * Local Server Information
- * Values from .env (environment) file
+ * View Engine and Templates
  *************************/
-/* ***********************
- * Routes
- *************************/
+app.set("view engine", "ejs")
+app.use(expressLayouts)
+app.set("layout", "layouts/layout") // not at views root
 app.use(static)
-const port = process.env.PORT
-const host = process.env.HOST
 
-/* ***********************
- * typical default file name
- *************************/
-/* ***********************
-* index
-*************************/
+//index route
 app.get("/", function(req, res){
   res.render("index", {title: "Home"})
 })
 
 
 /* ***********************
- * View Engine and Templates
+ * Local Server Information
+ * Values from .env (environment) file
  *************************/
-app.set("view engine", "ejs")
-app.set("views", __dirname + "/views")
-app.use(expressLayouts)
-app.set("layout", "layouts/layout") // not at views root
-
+const port = process.env.PORT
+const host = process.env.HOST
 
 /* ***********************
  * Log statement to confirm server operation
