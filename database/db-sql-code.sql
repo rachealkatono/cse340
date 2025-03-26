@@ -75,6 +75,26 @@ INSERT INTO public.inventory (
     classification_id
   )
 
+SELECT * FROM public.account
+ORDER BY account_id ASC 
+
+SELECT * FROM public.account
+ORDER BY account_id ASC 
+
+SELECT * FROM public.account
+ORDER BY account_id ASC 
+
+SELECT * FROM public.inventory
+ORDER BY inv_id ASC 
+
+SELECT * FROM public.inventory
+ORDER BY inv_id ASC 
+
+SELECT * FROM public.classification
+ORDER BY classification_id ASC 
+
+SELECT * FROM public.inventory
+ORDER BY inv_id ASC 
 
 -- Task 4: Modify "GM Hummer" description
 UPDATE inventory
