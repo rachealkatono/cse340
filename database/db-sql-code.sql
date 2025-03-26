@@ -254,11 +254,11 @@ SET
     inv_image = REPLACE(inv_image, '/images/vehicles/vehiclesvehicles/', '/images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/images/vehicles/vehiclesvehicles/', '/images/vehicles/');
 
-    SELECT * FROM public.account
-ORDER BY account_id ASC, 
+SELECT * FROM public.account
+ORDER BY account_id ASC; 
 
 SELECT * FROM public.inventory
-ORDER BY inv_id ASC, 
+ORDER BY inv_id ASC; 
 
 SELECT * FROM public.classification
-ORDER BY classification_id ASC, 
+ORDER BY classification_id ASC; 
