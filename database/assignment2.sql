@@ -32,5 +32,5 @@ WHERE
 -- Task 6: Update inventory image paths
 UPDATE inventory
 SET    
-    inv_image = REPLACE(inv_image, '/images/vehicles/vehiclesvehicles/', '/images/vehicles/'),
-    inv_thumbnail = REPLACE(inv_thumbnail, '/images/vehicles/vehiclesvehicles/', '/images/vehicles/');
+   inv_image = REPLACE(inv_image, '/images', '/images/vehicles/'),
+    inv_thumbnail = REPLACE(inv_thumbnail, '/images', '/images/vehicles/');

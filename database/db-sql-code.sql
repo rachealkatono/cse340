@@ -251,8 +251,8 @@ WHERE inv_make = 'GM' AND inv_model = 'Hummer';
 -- Task 6: Update inventory image paths
 UPDATE inventory
 SET    
-    inv_image = REPLACE(inv_image, '/images/vehicles/vehiclesvehicles/', '/images/vehicles/'),
-    inv_thumbnail = REPLACE(inv_thumbnail, '/images/vehicles/vehiclesvehicles/', '/images/vehicles/');
+    inv_image = REPLACE(inv_image, '/images', '/images/vehicles/'),
+    inv_thumbnail = REPLACE(inv_thumbnail, '/images', '/images/vehicles/');
 
 SELECT * FROM public.account
 ORDER BY account_id ASC; 
@@ -262,3 +262,4 @@ ORDER BY inv_id ASC;
 
 SELECT * FROM public.classification
 ORDER BY classification_id ASC; 
+

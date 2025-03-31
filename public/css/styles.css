@@ -48,18 +48,24 @@ body {
 }
 
 /********* Navigation **********/
-.nav {
+.nav ul {
     background-color: #333;
     color: white;
     display: flex;
     justify-content: space-around;
     padding: 10px;
     flex-wrap: wrap;
+    list-style-type: none;
 }
 
 .nav a {
     color: white;
     text-decoration: none;
+}
+
+.nav ul :hover {
+    background-color: aliceblue;
+    color: #000;
 }
 
 /********** Main content **********/
@@ -80,7 +86,7 @@ body {
 }
 
 .car-info h3 {
-    color: #053448;
+    color: #00a2e8;
     font-size: 1.5rem;
     margin: 0;
 }
@@ -127,7 +133,7 @@ body {
 }
 
 .car-info-overlay p {
-    color: #012433;
+    color: #00a2e8;
 }
 
 /********** Upgrades and Reviews container **********/
@@ -149,7 +155,6 @@ body {
     font-size: 0.9rem;
     color: #00a9e0;
     width: 100%;
-    order: 1;
 }
 
 .upgrades h1 {
@@ -182,7 +187,6 @@ body {
     font-size: 1.2rem;
     color: #333;
     text-align: left;
-    order: -1;
 }
 
 .reviews p {
@@ -226,12 +230,10 @@ body {
 
     .upgrades {
         grid-template-columns: 1fr 1fr;
-        order: -1;
     }
 
     .reviews {
         width: 45%;
-        order: 1;
     }
 
     .upgrade-item img {
@@ -246,5 +248,18 @@ body {
 
     .upgrades .upgrade-item a {
         font-size: 0.9rem;
+    }
+
+    #inv-display{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        list-style-type: none;
+    }
+    .vehicle-info {
+        display: flex;
+        align-items: center;
+    }
+    .vehicle-details {
+        margin-left: 10px;
     }
 }
