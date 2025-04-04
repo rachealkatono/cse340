@@ -1,0 +1,47 @@
+<section class="frame">
+    <h1>Add New Vehicle to Inventory</h1>
+
+    <%- messages() %> <!-- Display flash messages -->
+
+    <% if (errors) { %>
+        <ul class="notice">
+            <% errors.forEach(error => { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <form action="/inv/add-inventory" method="post" class="form-container" id="addInventoryForm" onsubmit="return validateForm()">
+        <label for="inv_make">Make:</label><br>
+        <input type="text" id="inv_make" name="inv_make" required value="<%= locals.inv_make %>"><br>
+
+        <label for="inv_model">Model:</label><br>
+        <input type="text" id="inv_model" name="inv_model" required value="<%= locals.inv_model %>"><br>
+
+        <label for="inv_year">Year:</label><br>
+        <input type="number" id="inv_year" name="inv_year" required min="1886" max="2023" value="<%= locals.inv_year %>"><br>
+
+        <label for="invDescription">Description:</label>
+        <textarea id="inv_description" name="inv_description" required value="<%= locals.inv_description %>"></textarea>
+
+        <label for="inv_image">Image Path:</label><br>
+        <input type="text" id="inv_image" name="inv_image" required value="<%= locals.inv_image %>"><br>
+
+        <label for="inv_image">Thumbnail</label><br>
+        <input type="text" id="inv_thumbnail" name="inv_thumbnail" required value="<%= locals.inv_thumbnail %>"><br>
+
+        <label for="inv_price">Price:</label><br>
+        <input type="number" id="inv_price" name="inv_price" required min="0" step="0.01" value="<%= locals.inv_price %>"><br>
+
+        <label for="inv_miles">Miles</label><br>
+        <input type="number" id="inv_miles" name="inv_miles" required value="<%= locals.inv_miles %>"><br>
+
+        <label for="inv_color">Color</label><br>
+        <input type="text" id="inv_color" name="inv_color" required value="<%= locals.inv_color %>"><br>
+
+        <label for="classificationList">Classification:</label><br>
+        <%- classificationList %> <!-- Render the classification select list -->
+
+        <input type="submit" value="Add Vehicle">
+    </form>
+</section>
