@@ -42,25 +42,36 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)
 
+// Simulated Internal Server Error Route
+app.get('/inv/broken', async (req, res, next) => {
+  next(new Error('This is a forced 500 Internal Server Error!'));
+});
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
-})
+  next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
+});
 
 /* ***********************
-* Express Error Handler
-* Place after all other middleware
-*************************/
+ * Express Error Handler
+ * Place after all other middleware
+ *************************/
 app.use(async (err, req, res, next) => {
-  let nav = await utilities.getNav()
-  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
-  res.render("errors/error", {
-    title: err.status || 'Server Error',
+  let nav = await utilities.getNav();
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`);
+
+  let statusCode = err.status || 500;
+  let message = statusCode === 404 
+    ? err.message 
+    : 'Oh no! There was a crash. Maybe try a different route?';
+
+  res.status(statusCode).render("errors/error", {
+    title: statusCode === 404 ? '404' : 'Server Error',
     message,
     nav
-  })
-})
+  });
+});
+
 
 /* ***********************
  * Local Server Information
