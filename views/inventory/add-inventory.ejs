@@ -12,6 +12,10 @@
     <% } %>
 
     <form action="/inv/add-inventory" method="post" class="form-container" id="addInventoryForm" onsubmit="return validateForm()">
+       
+        <label for="classificationList">Classification:</label><br>
+        <%- classificationList %> <!-- Render the classification select list -->
+
         <label for="inv_make">Make:</label><br>
         <input type="text" id="inv_make" name="inv_make" required value="<%= locals.inv_make %>"><br>
 
@@ -39,8 +43,6 @@
         <label for="inv_color">Color</label><br>
         <input type="text" id="inv_color" name="inv_color" required value="<%= locals.inv_color %>"><br>
 
-        <label for="classificationList">Classification:</label><br>
-        <%- classificationList %> <!-- Render the classification select list -->
 
         <input type="submit" value="Add Vehicle">
     </form>
