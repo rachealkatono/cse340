@@ -1,19 +1,19 @@
-<section class="frame">
-    <h1>Add New Classification</h1>
+<!-- Content Heading -->
+<% if (title) { %>
+  <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+  } %>
 
-    <%- messages() %> <!-- Display flash messages -->
+<!-- Message Block -->
+<%- messages() %>
 
-    <% if (errors) { %>
-        <ul class="notice">
-            <% errors.forEach(error => { %>
-                <li><%= error.msg %></li>
-            <% }) %>
-        </ul>
-    <% } %>
+<form id="add-class-form" action="/inv/add-classification" method="post" class="form-container">
+  <h2>Add Classification</h2>
 
-    <form action="/inv/add-classification" method="post" class="form-container" id="addClassificationForm" onsubmit="return validateForm()">
-        <label for="classification_name">Classification Name:</label><br>
-        <input type="text" id="classification_name" name="classification_name" required pattern="^[a-zA-Z0-9]+" title="No spaces or special characters allowed."><br>
-        <input type="submit" value="Add Classification">
-    </form>
-</section>
+  <label for="classification">Classification Name</label>
+  <div>(Must be only alphabetic characters and 3 or more characters)</div>
+  <input type="text" id="add-class" name="classification_name" placeholder="Enter classification name" pattern="[A-Za-z]+" required>
+  
+  <button type="submit">Add Classification</button>
+</form>
