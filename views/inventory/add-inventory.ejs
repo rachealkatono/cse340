@@ -20,8 +20,18 @@
     <% }) %>
   </select>
 
+<<<<<<< HEAD
   <label for="inv_make">Make</label>
   <input type="text" id="inv_make" name="inv_make" required minlength="3" value="<%= locals.inv_make || '' %>">
+=======
+    <form action="/inv/add-inventory" method="post" class="form-container" id="addInventoryForm" onsubmit="return validateForm()">
+       
+        <label for="classificationList">Classification:</label><br>
+        <%- classificationList %> <!-- Render the classification select list -->
+
+        <label for="inv_make">Make:</label><br>
+        <input type="text" id="inv_make" name="inv_make" required value="<%= locals.inv_make %>"><br>
+>>>>>>> 7a661be3642ab871cef94468954deaea76565bf5
 
   <label for="inv_model">Model</label>
   <input type="text" id="inv_model" name="inv_model" required minlength="3" value="<%= locals.inv_model || '' %>">
@@ -47,5 +57,12 @@
   <label for="inv_color">Color</label>
   <input type="text" id="inv_color" name="inv_color" value="<%= locals.inv_color || '' %>" required>
 
+<<<<<<< HEAD
   <button type="submit">Add Inventory</button>
 </form>
+=======
+
+        <input type="submit" value="Add Vehicle">
+    </form>
+</section>
+>>>>>>> 7a661be3642ab871cef94468954deaea76565bf5
