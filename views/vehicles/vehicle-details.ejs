@@ -1,0 +1,25 @@
+<% if (locals.user) { %>
+    <section>
+      <h2>Leave a Review</h2>
+      <form action="/reviews" method="POST">
+        <input type="hidden" name="invId" value="<%= vehicle.invId %>">
+        <textarea name="reviewText" rows="4" required></textarea><br>
+        <button type="submit">Submit Review</button>
+      </form>
+    </section>
+  <% } else { %>
+    <p><a href="/login">Login</a> to post a review.</p>
+  <% } %>
+  
+  <section>
+    <h2>Customer Reviews</h2>
+    <% if (reviews.length > 0) { %>
+      <% reviews.forEach(r => { %>
+        <p><strong><%= r.clientFirstname.charAt(0) %>. <%= r.clientLastname %></strong> on 
+        <%= new Date(r.reviewDate).toLocaleDateString() %>:<br>
+        <%= r.reviewText %></p>
+      <% }) %>
+    <% } else { %>
+      <p>No reviews yet. Be the first to write one!</p>
+    <% } %>
+  </section>
