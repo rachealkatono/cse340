@@ -14,9 +14,14 @@ async function getVehicleById(id) {
  */
 async function getReviewsByVehicle(inv_id) {
   const sql = `
-    SELECT r.review_text, r.review_date, r.account_id, a.account_firstname, a.account_lastname
+    SELECT 
+      r.review_text, 
+      r.review_date, 
+      r.account_id, 
+      a.account_firstname, 
+      a.account_lastname
     FROM reviews r
-    JOIN account a ON r.account_id = a.account_id
+    JOIN account a ON r.account_id = a.account_id -- 
     WHERE r.inv_id = $1
     ORDER BY r.review_date DESC
   `;

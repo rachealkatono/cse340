@@ -1,7 +1,9 @@
 <div class="vehicle-details">
   <h1><%= vehicle.inv_make %> <%= vehicle.inv_model %></h1>
   <div class="vehicle-image">
-      <img src="/images/vehicles/" alt="<%= vehicle.inv_make %> <%= vehicle.inv_model %>" class="vehicle-img">
+    <img src="<%= vehicle.inv_image %>" 
+    alt="<%= vehicle.inv_make %> <%= vehicle.inv_model %>" 
+    class="vehicle-img" />
   </div>
   <p><%= vehicle.inv_description %></p>
 </div>
