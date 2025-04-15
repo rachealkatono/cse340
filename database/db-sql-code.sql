@@ -263,3 +263,12 @@ ORDER BY inv_id ASC;
 SELECT * FROM public.classification
 ORDER BY classification_id ASC; 
 
+CREATE TABLE review (
+  review_id SERIAL PRIMARY KEY,
+  review_text TEXT NOT NULL,
+  review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  inv_id INTEGER NOT NULL REFERENCES inventory(inv_id),
+  account_id INTEGER NOT NULL REFERENCES account(account_id)
+);
+
+SELECT * FROM public."Review"

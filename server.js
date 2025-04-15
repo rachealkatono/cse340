@@ -23,6 +23,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const pgSession = require("connect-pg-simple")(session);
 const messages = require("express-messages");
+const reviewRoute = require("./routes/reviewRoute");
 
 /* ***********************
  * Middleware
@@ -85,6 +86,7 @@ app.set("layout", "./layouts/layout");
 // Public Routes
 app.get("/", utilities.handleErrors(baseController.buildHome));
 app.use("/account", accountRoute);
+app.use("/review", reviewRoute);
 
 // Restricted Routes
 app.use("/inv", inventoryRoute);

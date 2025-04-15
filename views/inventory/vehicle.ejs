@@ -1,12 +1,43 @@
-<!-- Content Heading -->
-<% if (title) { %>
-  <h1><%= title %></h1>
-  <% } else {
-    res.redirect('/')
-  } %>
+<div class="vehicle-details">
+  <h1><%= vehicle.inv_make %> <%= vehicle.inv_model %></h1>
+  <div class="vehicle-image">
+      <img src="/images/vehicles/" alt="<%= vehicle.inv_make %> <%= vehicle.inv_model %>" class="vehicle-img">
+  </div>
+  <p><%= vehicle.inv_description %></p>
+</div>
 
-<!-- Message Block -->
-<%- messages() %>
 
-<!-- Inventory items display -->
-<%- vehicleTemplate %>
+<h2>Customer Reviews</h2>
+
+<ul>
+  <% if (reviews && reviews.length > 0) { %>
+    <% reviews.forEach(review => { %>
+      <li>
+        "<%= review.review_text %>"<br>
+        — <strong><%= review.account_firstname %> <%= review.account_lastname %></strong>,
+        <em><%= new Date(review.review_date).toLocaleDateString() %></em>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No reviews yet. Be the first to write one!</li>
+  <% } %>
+</ul>
+
+<hr>
+
+<% if (accountData) { %>
+  <h3>Write a Review</h3>
+  <form action="/review/submit" method="POST">
+    <div>
+      <label for="review_text">Your Review:</label><br>
+      <textarea name="review_text" id="review_text" rows="4" cols="50" required></textarea>
+    </div>
+    <input type="hidden" name="inv_id" value="<%= vehicle.inv_id %>">
+    <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+    <br>
+    <button type="submit">Submit Review</button>
+  </form>
+<% } else { %>
+  <p><a href="/account/login">Log in</a> to write a review.</p>
+<% } %>
+

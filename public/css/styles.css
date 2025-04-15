@@ -231,6 +231,15 @@ body {
     cursor: pointer;
     font-weight: bold;
 }
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    resize: vertical;
+  }
 
 .form-container button:hover {
     background-color: #bdc3c7;
